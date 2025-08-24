@@ -21,7 +21,7 @@
 setwd("C:/Users/...") # Replace the content within the quotes with your selected working directory
 getwd()
 
-# Load Required Packages #
+# Install and Load Required Packages #
 ## Install
 install.packages("readr")
 install.packages("dplyr")
