@@ -3,7 +3,7 @@
 ## Abstract
 - **Conclusion**:
 - **Tools**: R, RStudio, `readr`, `dplyr`, `tidyr`
-- **Skills**:
+- **Skills**: 
 
 ---
 
@@ -25,6 +25,13 @@
 
 #### Key Variables
 
+| Variable Name              | Description                                          |
+|----------------------------|------------------------------------------------------|
+| `people_fully_vaccinated`  | Numeric variable representing the cumulative number of individuals fully vaccinated against COVID-19 |
+| `new_vaccinations`         | Numeric variable representing the daily number of new vaccinations administered |
+| `total_boosters`           | Numeric variable representing the cumulative number of booster doses administered |
+| `date`                     | Interval variable indicating when the vaccination data was recorded             |
+| `location`                 | Categorical variable indicating the country or region where the data was collected | 
 
 ---
 
@@ -53,7 +60,7 @@
 2. **Clone the Repository**
    ```bash
    git clone https://github.com/hgurr/covid-vaccination-trends.git
-   cd homicide-weapon-analysis
+   cd covid-vaccination-trends
 
 3. **Open `covid-vaccination-trends.R` in RStudio**
 
@@ -62,7 +69,7 @@
    install.packages(c("readr", "dplyr", "tidyr"))
 5. **Run the Script**
 
-Ensure homicide_sample.csv is in your working directory.
+Ensure covid-vaccination-trends.csv is in your working directory.
 - Click **Source** to run the whole script, or
 - Run line-by-line for step-by-step execution
 
