@@ -21,12 +21,7 @@
 setwd("C:/Users/...") # Replace the content within the quotes with your selected working directory
 getwd()
 
-# Install and Load Required Packages #
-## Install
-install.packages("readr")
-install.packages("dplyr")
-install.packages("tidyr")
-## Load
+# Load Required Packages #
 library(readr)
 library(dplyr)
 library(tidyr)
@@ -38,102 +33,78 @@ covid <- read_csv("owid-covid-data.csv")
 str(covid)
 head(covid)
 
-# Define Variables of Interest #
+# Variables of Interest #
 # 1. "people_fully_vaccinated" — Cumulative number of fully vaccinated individuals
 # 2. "new_vaccinations" — Daily new vaccinations administered
 # 3. "total_boosters" — Cumulative number of booster doses administered
 # 4. "date" — Date on which the data was recorded
 # 5. "location" — Country name where the data was recorded
 
+# Format Date — x-axis
+date <- as.Date(covid$date, format = "%m/%d/%Y")
+
 # --------------------
 # UNITED STATES
 # --------------------
 
-# Graph 1: People Fully Vaccinated #
-## Date — x-axis
-US1date <- as.Date(US1$date, format ="%m/%d/%Y")
-## People Fully Vaccinated in the United States — y-axis
-US1 <- filter(covid, covid$location == "United States" & covid$people_fully_vaccinated >= 0)
+# Data Frame
+us <- filter(covid, covid$location == "United States")
 
-plot(US1date, US1$people_fully_vaccinated, main = "COVID-19: People Fully Vaccinated in the United States", 
-     xlab = "Date", ylab = "Number of People Fully Vaccinated (in millions)", type = "l")
+# Graph 1: People Fully Vaccinated #
+## People Fully Vaccinated — y-axis
+plot(date, us$people_fully_vaccinated, main = "People Fully Vaccinated in the United States", 
+     xlab = "Date", ylab = "Number of People Fully Vaccinated (in millions)", type = "l", col = "crimson")
 
 # Graph 2: New Vaccinations Administered #
-## Date — x-axis
-US2date <- as.Date(US2$date, format ="%m/%d/%Y")
-## New Vaccinations Administered in the United States — y-axis
-US2 <- filter(covid, covid$location == "United States" & covid$new_vaccinations >= 0)
-
-plot(US2date, US2$new_vaccinations, main = "COVID 19: New Vaccinations Administered in the United States",
-     xlab = "Date", ylab = "Number of People Administered New Vaccinations (in millions)", type = "l")
+## New Vaccinations Administered — y-axis
+plot(date, us$new_vaccinations, main = "New Vaccinations Administered in the United States", 
+     xlab = "Date", ylab = "Number of People Administered New Vaccinations (in millions)", type = "l", col = "crimson")
 
 # Graph 3: Total Boosters Administered #
-## Date — x-axis
-US3date <- as.Date(US3$date, format ="%m/%d/%Y")
-## Total Boosters Administrated in the United States — y-axis
-US3 <- filter(covid, covid$location == "United States" & covid$total_boosters >= 0)
-
-plot(US3date, US3$total_boosters, main = "COVID-19: Total Boosters Administrated in the United States",
-     xlab = "Date", ylab = "Number of People Administered Boosters (in millions)", type = "l")
+## Total Boosters Administrated — y-axis
+plot(date, us$total_boosters, main = "Total Boosters Administrated in the United States", 
+     xlab = "Date", ylab = "Number of People Administered Boosters (in millions)", type = "l", col = "crimson")
 
 # --------------------
 # FRANCE
 # --------------------
 
-# Graph 1: People Fully Vaccinated #
-## Date — x-axis
-FR1date <- as.Date(FR1$date, format ="%m/%d/%Y")
-## People Fully Vaccinated in France — y-axis
-FR1 <- filter(covid, covid$location == "France" & covid$people_fully_vaccinated >= 0)
+# Data Frame
+fr <- filter(covid, covid$location == "France")
 
-plot(FR1date, FR1$people_fully_vaccinated, main = "COVID-19: People Fully Vaccinated in France",
-     xlab = "Date", ylab = "Number of People Fully Vaccinated (in millions)", type = "l")
+# Graph 1: People Fully Vaccinated #
+## People Fully Vaccinated — y-axis
+plot(date, fr$people_fully_vaccinated, main = "People Fully Vaccinated in France", 
+     xlab = "Date", ylab = "Number of People Fully Vaccinated (in millions)", type = "l", col = "mediumseagreen")
 
 # Graph 2: New Vaccinations Administered #
-## Date — x-axis
-FR2date <- as.Date(FR2$date, format ="%m/%d/%Y")
-## New Vaccinations Administered in France — y-axis
-FR2 <- filter(covid, covid$location == "France" & covid$new_vaccinations >= 0)
-
-plot(FR2date, FR2$new_vaccinations, main = "COVID 19: New Vaccinations Administered in France",
-     xlab = "Date", ylab = "Number of People Administered New Vaccinations (in millions)", type = "l")
+## New Vaccinations Administered — y-axis
+plot(date, fr$new_vaccinations, main = "New Vaccinations Administered in France", 
+     xlab = "Date", ylab = "Number of People Administered New Vaccinations (in millions)", type = "l", col = "mediumseagreen")
 
 # Graph 3: Total Boosters Administered #
-## Date — x-axis
-FR3date <- as.Date(FR3$date, format ="%m/%d/%Y")
-## Total Boosters Administrated in France — y-axis
-FR3 <- filter(covid, covid$location == "France" & covid$total_boosters >= 0)
-
-plot(FR3date, FR3$total_boosters, main = "COVID-19: Total Boosters Administrated in France",
-     xlab = "Date", ylab = "Number of People Administered Boosters (in millions)", type = "l")
+## Total Boosters Administrated — y-axis
+plot(date, fr$total_boosters, main = "Total Boosters Administrated in France", 
+     xlab = "Date", ylab = "Number of People Administered Boosters (in millions)", type = "l", col = "mediumseagreen")
 
 # --------------------
 # GERMANY
 # --------------------
 
-# Graph 1: People Fully Vaccinated #
-## Date — x-axis
-DE1date <- as.Date(DE1$date, format ="%m/%d/%Y")
-## People Fully Vaccinated in Germany — y-axis
-DE1 <- filter(covid, covid$location == "Germany" & covid$people_fully_vaccinated >= 0)
+# Data Frame
+de <- filter(covid, covid$location == "Germany")
 
-plot(DE1date, DE1$people_fully_vaccinated, main = "COVID-19: People Fully Vaccinated in Germany",
-     xlab = "Date", ylab = "Number of People Fully Vaccinated (in millions)", type = "l")
+# Graph 1: People Fully Vaccinated #
+## People Fully Vaccinated — y-axis
+plot(date, de$people_fully_vaccinated, main = "People Fully Vaccinated in Germany", 
+     xlab = "Date", ylab = "Number of People Fully Vaccinated (in millions)", type = "l", col = "steelblue")
 
 # Graph 2: New Vaccinations Administered #
-## Date — x-axis
-DE2date <- as.Date(DE2$date, format ="%m/%d/%Y")
-## New Vaccinations Administered in Germany — y-axis
-DE2 <- filter(covid, covid$location == "Germany" & covid$new_vaccinations >= 0)
-
-plot(DE2date, DE2$new_vaccinations, main = "COVID 19: New Vaccinations Administered in Germany",
-     xlab = "Date", ylab = "Number of People Administered New Vaccinations (in millions)", type = "l")
+## New Vaccinations Administered — y-axis
+plot(date, de$new_vaccinations, main = "New Vaccinations Administered in Germany", 
+     xlab = "Date", ylab = "Number of People Administered New Vaccinations (in millions)", type = "l", col = "steelblue")
 
 # Graph 3: Total Boosters Administered #
-## Date — x-axis
-DE3date <- as.Date(DE3$date, format ="%m/%d/%Y")
-## Total Boosters Administrated in Germany — y-axis
-DE3 <- filter(covid, covid$location == "Germany" & covid$total_boosters >= 0)
-
-plot(DE3date, DE3$total_boosters, main = "COVID-19: Total Boosters Administrated in Germany",
-     xlab = "Date", ylab = "Number of People Administered Boosters (in millions)", type = "l")
+## Total Boosters Administrated — y-axis
+plot(date, de$total_boosters, main = "Total Boosters Administrated in Germany", 
+     xlab = "Date", ylab = "Number of People Administered Boosters (in millions)", type = "l", col = "steelblue")
