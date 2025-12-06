@@ -9,7 +9,7 @@
 ##   2) The number of new vaccinations administered
 ##   3) The total number of booster doses administered
 ##   
-##   For each country, the script filters the dataset, converts date formats,
+##   For each country, converts date formats, the script filters the dataset,
 ##   and creates line graphs to visualize the vaccination trends over time.
 ##   These graphs will be used to compare patterns and highlight differences
 ##   in vaccination uptake between the three countries.
